@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeaponDef" format=3]
+
+[ext_resource type="Script" path="res://src/content/weapon_def.gd" id="1_weapon"]
+[ext_resource type="PackedScene" path="res://core/weapons/dagger_model.tscn" id="2_model"]
+
+[resource]
+script = ExtResource("1_weapon")
+id = &"core:rusty_dagger"
+display_name = "Adaga enferrujada"
+description = "Encontrada na floresta. Cega, mas melhor que as mãos nuas."
+damage = 12.0
+stamina_cost = 10.0
+reach = 1.2
+scene = ExtResource("2_model")

@@ -1,0 +1,69 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://src/world/candle_pickup.tscn" id="1_candle"]
+[ext_resource type="PackedScene" path="res://src/world/letter.tscn" id="2_letter"]
+[ext_resource type="Script" path="res://src/components/aim_at.gd" id="3_aim"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_wood"]
+albedo_color = Color(0.22, 0.16, 0.11, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="Mat_cloth"]
+albedo_color = Color(0.3, 0.27, 0.24, 1)
+roughness = 1.0
+
+[node name="Room" type="Node3D"]
+
+[node name="Shell" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="Outer" type="CSGBox3D" parent="Shell"]
+position = Vector3(0, 1.5, 0)
+size = Vector3(6, 3.2, 5)
+material = SubResource("Mat_wood")
+
+[node name="Inner" type="CSGBox3D" parent="Shell"]
+position = Vector3(0, 1.4, 0)
+operation = 2
+size = Vector3(5.6, 2.8, 4.6)
+material = SubResource("Mat_wood")
+
+[node name="Door" type="CSGBox3D" parent="Shell"]
+position = Vector3(0, 1, 2.5)
+operation = 2
+size = Vector3(1, 2, 0.6)
+
+[node name="Window" type="CSGBox3D" parent="Shell"]
+position = Vector3(-2.9, 1.6, 0)
+operation = 2
+size = Vector3(0.6, 0.9, 1.2)
+
+[node name="Bed" type="CSGBox3D" parent="Shell"]
+position = Vector3(2.2, 0.25, -1.2)
+size = Vector3(1, 0.5, 2)
+material = SubResource("Mat_cloth")
+
+[node name="Table" type="CSGBox3D" parent="Shell"]
+position = Vector3(-1.8, 0.375, -1.6)
+size = Vector3(0.8, 0.75, 0.6)
+material = SubResource("Mat_wood")
+
+[node name="MoonBeam" type="SpotLight3D" parent="."]
+position = Vector3(-3.4, 1.9, 0.2)
+light_color = Color(0.6, 0.7, 1, 1)
+light_energy = 3.0
+light_volumetric_fog_energy = 3.0
+shadow_enabled = true
+spot_range = 5.0
+spot_angle = 16.0
+script = ExtResource("3_aim")
+target = Vector3(-1.9, 0.8, -1.6)
+
+[node name="Candle" parent="." instance=ExtResource("1_candle")]
+position = Vector3(-1.95, 0.75, -1.6)
+
+[node name="Letter" parent="." instance=ExtResource("2_letter")]
+position = Vector3(-1.6, 0.752, -1.55)
+text = "Estamos te vendo.
+Estamos te observando.
+Tome cuidado com suas ações."

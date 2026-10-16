@@ -1,0 +1,8 @@
+{
+  "id": "example_weapon",
+  "name": "Lâmina Enferrujada (exemplo)",
+  "version": "1.0.0",
+  "game_version": ">=0.1.0",
+  "load_after": ["core"],
+  "content": ["res://mods/example_weapon/rusty_blade.tres"]
+}

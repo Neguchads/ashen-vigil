@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="EnemyDef" format=3]
+
+[ext_resource type="Script" path="res://src/content/enemy_def.gd" id="1"]
+[ext_resource type="PackedScene" path="res://assets/quaternius/wolf.fbx" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = &"core:wolf"
+display_name = "Lobo da floresta"
+max_health = 48.0
+damage = 18.0
+speed = 2.7
+aggro_range = 6.5
+leash_range = 14.0
+attack_range = 1.35
+attack_duration = 1.2
+strike_delay = 0.55
+scene = ExtResource("2")
+model_scale = Vector3(0.23, 0.23, 0.23)
+model_rotation = Vector3(0, 1.5707963, 0)
+idle_animation = "WolfArmature|Idle"
+move_animation = "WolfArmature|Walking"

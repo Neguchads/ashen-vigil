@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WeaponDef" format=3]
+
+[ext_resource type="Script" path="res://src/content/weapon_def.gd" id="1_weapon"]
+
+[resource]
+script = ExtResource("1_weapon")
+id = &"core:test_sword"
+display_name = "Espada substituída"
+damage = 99.0

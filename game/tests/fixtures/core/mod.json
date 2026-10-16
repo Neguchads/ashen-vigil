@@ -1,0 +1,7 @@
+{
+  "id": "core",
+  "name": "Núcleo de teste",
+  "version": "0.1.0",
+  "game_version": ">=0.1.0",
+  "content": ["res://tests/fixtures/core/test_sword.tres"]
+}
