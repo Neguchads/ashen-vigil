@@ -79,6 +79,16 @@ Cada decisão registra o que foi escolhido, o porquê e a alternativa descartada
 - **Escolha:** cada flashback vira um `FragmentDef` no diário, que sobrevive ao loop e destrava escolhas e falas, igual às pistas.
 - **Por quê:** a história do protagonista (memória apagada que nunca se completa) precisa de um mecanismo de jogo. Reaproveitar o diário evita um sistema novo.
 
+## 2026-10-16: testes do Godot sem modo debug e com tempo limite
+
+- **Escolha:** o `check.ps1` roda o GdUnit4 sem a flag `-d` e mata o processo depois de 5 minutos.
+- **Por quê:** com `-d`, um erro de parse abre o depurador interativo do Godot, que fica esperando um comando para sempre. Num teste isso gerou 1,4 GB de log. Sem `-d`, o erro vira falha normal.
+
+## 2026-10-16: benchmark só com a janela em primeiro plano
+
+- **Escolha:** medir fps com `--always-on-top` e registrar também o tempo de GPU por quadro.
+- **Por quê:** o Windows 11 desacelera processos com janela em segundo plano; os números caíam para 20 a 47 fps sem relação com a cena. O tempo de GPU (5,5 ms) mostra o custo real da cena, independente disso.
+
 ## 2026-10-16: jogável desde o começo, em greybox
 
 - **Escolha:** cada plano termina com algo novo para jogar. A primeira cena (acordar, vela, carta, floresta) é feita em greybox, com formas simples, e a arte real entra depois trocando propriedades.

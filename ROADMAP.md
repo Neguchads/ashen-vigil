@@ -6,10 +6,12 @@
 - Bíblia do projeto, história do Capítulo 1 e bíblia do mundo (`docs/`).
 
 - Planos de implementação (`docs/superpowers/plans/`).
+- Plano 01, primeiro jogável: acordar no quarto iluminado pelo luar, pegar a vela, ler a carta e andar pela floresta à noite (greybox). 27 testes automáticos e benchmark de fps.
 
 ## Em andamento
 
-- Plano 01, primeiro jogável: acordar no quarto, vela, carta e floresta à noite em greybox.
+- Playtest do primeiro jogável com o Gustavo.
+- Plano 02, dados e mods (próximo).
 
 ## Planejado
 
