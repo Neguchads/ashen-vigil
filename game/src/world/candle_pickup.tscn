@@ -1,0 +1,27 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/world/candle_pickup.gd" id="1_candle"]
+
+[sub_resource type="BoxShape3D" id="Shape_candle"]
+size = Vector3(0.15, 0.16, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="Mat_wax"]
+albedo_color = Color(0.9, 0.86, 0.75, 1)
+
+[sub_resource type="CylinderMesh" id="Mesh_candle"]
+material = SubResource("Mat_wax")
+top_radius = 0.03
+bottom_radius = 0.035
+height = 0.15
+
+[node name="Candle" type="StaticBody3D"]
+script = ExtResource("1_candle")
+prompt = "pegar a vela"
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0.08, 0)
+shape = SubResource("Shape_candle")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.075, 0)
+mesh = SubResource("Mesh_candle")
