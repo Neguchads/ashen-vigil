@@ -36,7 +36,18 @@ Write-Host '== importação do projeto'
 if ($LASTEXITCODE -ne 0) { Fail 'importação do Godot' $LASTEXITCODE }
 
 Write-Host '== testes (GdUnit4)'
-& $godot --headless --path $game -s -d res://addons/gdUnit4/bin/GdUnitCmdTool.gd -a res://tests -c --ignoreHeadlessMode
-if ($LASTEXITCODE -ne 0) { Fail "testes (código $LASTEXITCODE; 100 = falhas, 101 = avisos)" $LASTEXITCODE }
+# Sem -d (modo debug): com ele, um erro de parse abre o depurador interativo e o Godot trava.
+# O tempo limite garante que um travamento vira falha, não espera infinita.
+$log = Join-Path ([IO.Path]::GetTempPath()) 'ashen-vigil-tests.log'
+$args_test = @('--headless', '--path', "`"$game`"", '-s', 'res://addons/gdUnit4/bin/GdUnitCmdTool.gd', '-a', 'res://tests', '-c', '--ignoreHeadlessMode')
+$proc = Start-Process -FilePath $godot -ArgumentList $args_test -NoNewWindow -PassThru -RedirectStandardOutput $log -RedirectStandardError "$log.err"
+if (-not $proc.WaitForExit(300000)) {
+    $proc.Kill($true)
+    Get-Content $log -Tail 30
+    Fail 'testes travaram (mais de 5 min); veja o log acima'
+}
+Get-Content $log | Select-String -Pattern 'STARTED' -NotMatch | Select-Object -Last 40
+Get-Content "$log.err" | Select-String -Pattern 'SCRIPT ERROR|Parse Error|Parser Error' | Select-Object -First 10
+if ($proc.ExitCode -ne 0) { Fail "testes (código $($proc.ExitCode); 100 = falhas, 101 = avisos)" $proc.ExitCode }
 
 Write-Host 'OK: tudo passou' -ForegroundColor Green
