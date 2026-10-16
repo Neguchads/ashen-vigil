@@ -10,12 +10,17 @@ extends Node3D
 @export var scatter_seed := 42
 ## Material do chão. Vazio = cor de terra escura.
 @export var ground_material: Material
+## Corredor sem troncos até o encontro distante.
+@export var trail_half_width := 3.5
+@export var trail_length := 38.0
 
 var tree_transforms: Array[Transform3D] = []
 
 
 func _ready() -> void:
-	tree_transforms = scatter(tree_count, area_size, clearing_radius, scatter_seed)
+	tree_transforms = scatter(
+		tree_count, area_size, clearing_radius, scatter_seed, trail_half_width, trail_length
+	)
 	_build_ground()
 	_build_trees()
 	_build_trunk_collision()
@@ -24,7 +29,12 @@ func _ready() -> void:
 ## Espalha `count` árvores num quadrado de lado `size`, fora de um círculo `clearing`.
 ## Mesma semente, mesma floresta. Clareira impossível devolve lista vazia.
 static func scatter(
-	count: int, size: float, clearing: float, seed_value: int
+	count: int,
+	size: float,
+	clearing: float,
+	seed_value: int,
+	trail_width: float = 0.0,
+	trail_distance: float = 0.0
 ) -> Array[Transform3D]:
 	var out: Array[Transform3D] = []
 	var half := size / 2.0
@@ -36,6 +46,8 @@ static func scatter(
 	while out.size() < count:
 		var pos := Vector3(rng.randf_range(-half, half), 0.0, rng.randf_range(-half, half))
 		if pos.length() < clearing:
+			continue
+		if absf(pos.x) < trail_width and pos.z > 0.0 and pos.z < trail_distance:
 			continue
 		var size_factor := rng.randf_range(0.8, 1.4)
 		var tree_basis := Basis(Vector3.UP, rng.randf() * TAU).scaled(Vector3.ONE * size_factor)

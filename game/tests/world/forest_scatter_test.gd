@@ -3,6 +3,14 @@ extends GdUnitTestSuite
 const Forest := preload("res://src/world/forest_builder.gd")
 
 
+func test_trail_remains_clear_for_distant_wolf_encounter() -> void:
+	var trees: Array[Transform3D] = Forest.scatter(600, 120.0, 10.0, 42, 3.5, 38.0)
+	assert_int(trees.size()).is_equal(600)
+	for tree in trees:
+		var in_trail := absf(tree.origin.x) < 3.5 and tree.origin.z > 0.0 and tree.origin.z < 38.0
+		assert_bool(in_trail).is_false()
+
+
 func test_count_and_clearing() -> void:
 	var trees := Forest.scatter(200, 100.0, 10.0, 7)
 	assert_int(trees.size()).is_equal(200)

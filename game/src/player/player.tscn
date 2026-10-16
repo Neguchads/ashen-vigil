@@ -2,6 +2,21 @@
 
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_player"]
 [ext_resource type="Script" path="res://src/components/light_source.gd" id="2_light"]
+[ext_resource type="Script" path="res://src/components/combat_vitals.gd" id="3_vitals"]
+[ext_resource type="Script" path="res://src/player/combat_controller.gd" id="4_combat"]
+
+[sub_resource type="StyleBoxFlat" id="HealthFill"]
+bg_color = Color(0.62, 0.21, 0.18, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_left = 2
+corner_radius_bottom_right = 2
+
+[sub_resource type="StyleBoxFlat" id="StaminaFill"]
+bg_color = Color(0.42, 0.55, 0.32, 1)
+
+[sub_resource type="StyleBoxFlat" id="BarBackground"]
+bg_color = Color(0.06, 0.065, 0.07, 0.9)
 
 [sub_resource type="CapsuleShape3D" id="Shape_body"]
 radius = 0.35
@@ -34,6 +49,12 @@ script = ExtResource("1_player")
 position = Vector3(0, 0.9, 0)
 shape = SubResource("Shape_body")
 
+[node name="Vitals" type="Node" parent="."]
+script = ExtResource("3_vitals")
+
+[node name="Combat" type="Node" parent="."]
+script = ExtResource("4_combat")
+
 [node name="Head" type="Node3D" parent="."]
 position = Vector3(0, 1.65, 0)
 
@@ -42,6 +63,7 @@ current = true
 fov = 75.0
 
 [node name="InteractRay" type="RayCast3D" parent="Head/Camera"]
+collision_mask = 3
 target_position = Vector3(0, 0, -2)
 
 [node name="HandLight" type="OmniLight3D" parent="Head/Camera"]
@@ -57,6 +79,10 @@ mesh = SubResource("Mesh_candle")
 
 [node name="Flame" type="MeshInstance3D" parent="Head/Camera/HandLight"]
 mesh = SubResource("Mesh_flame")
+
+[node name="WeaponHand" type="Node3D" parent="Head/Camera"]
+position = Vector3(-0.25, -0.28, -0.5)
+rotation = Vector3(-0.3, 0.1, 0.18)
 
 [node name="Hud" type="CanvasLayer" parent="."]
 
@@ -85,3 +111,42 @@ offset_bottom = 160.0
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="Notice" type="Label" parent="Hud"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_top = 0.7
+anchor_bottom = 0.7
+offset_left = -300.0
+offset_right = 300.0
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 18
+mouse_filter = 2
+
+[node name="CombatHud" type="VBoxContainer" parent="Hud"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = -110.0
+offset_right = 280.0
+offset_bottom = -40.0
+theme_override_constants/separation = 8
+mouse_filter = 2
+
+[node name="Health" type="ProgressBar" parent="Hud/CombatHud"]
+custom_minimum_size = Vector2(244, 14)
+theme_override_styles/fill = SubResource("HealthFill")
+theme_override_styles/background = SubResource("BarBackground")
+value = 100.0
+show_percentage = false
+tooltip_text = "Vida"
+mouse_filter = 2
+
+[node name="Stamina" type="ProgressBar" parent="Hud/CombatHud"]
+custom_minimum_size = Vector2(244, 8)
+theme_override_styles/fill = SubResource("StaminaFill")
+theme_override_styles/background = SubResource("BarBackground")
+value = 100.0
+show_percentage = false
+tooltip_text = "Stamina"
+mouse_filter = 2

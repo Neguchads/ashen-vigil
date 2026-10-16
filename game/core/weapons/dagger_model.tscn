@@ -1,0 +1,37 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="Metal"]
+albedo_color = Color(0.48, 0.4, 0.32, 1)
+metallic = 0.7
+roughness = 0.65
+
+[sub_resource type="StandardMaterial3D" id="Leather"]
+albedo_color = Color(0.14, 0.08, 0.05, 1)
+roughness = 1.0
+
+[sub_resource type="PrismMesh" id="Blade"]
+material = SubResource("Metal")
+size = Vector3(0.065, 0.3, 0.025)
+
+[sub_resource type="BoxMesh" id="Guard"]
+material = SubResource("Metal")
+size = Vector3(0.14, 0.025, 0.035)
+
+[sub_resource type="CylinderMesh" id="Handle"]
+material = SubResource("Leather")
+top_radius = 0.018
+bottom_radius = 0.022
+height = 0.12
+
+[node name="Dagger" type="Node3D"]
+
+[node name="Blade" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.16, 0)
+mesh = SubResource("Blade")
+
+[node name="Guard" type="MeshInstance3D" parent="."]
+mesh = SubResource("Guard")
+
+[node name="Handle" type="MeshInstance3D" parent="."]
+position = Vector3(0, -0.065, 0)
+mesh = SubResource("Handle")

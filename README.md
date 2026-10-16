@@ -8,12 +8,23 @@ Projeto de portfólio, em desenvolvimento. A história, os pilares e a arquitetu
 
 ## O que já dá para jogar
 
-A cena do despertar, em *greybox* (formas simples no lugar da arte final):
+A cena do despertar, com formas provisórias e alguns modelos CC0:
 
 - acordar no quarto escuro, iluminado só pelo luar da janela;
 - pegar a vela, que tremula e queima até acabar;
 - ler a carta: *"Estamos te vendo. Estamos te observando. Tome cuidado com suas ações."*;
 - sair pela porta e andar pela floresta enevoada.
+- encontrar a adaga sobre uma pedra em frente à porta e equipá-la com **E**;
+- carregar uma arma adicional pelo mod de exemplo, com modelo e atributos próprios.
+
+- atacar com a adaga, bloquear e esquivar, com vida e stamina;
+- enfrentar um lobo hostil e encontrar outro caído e ferido, distante na trilha;
+- poupar o lobo ferido ou matá-lo; a escolha vale para a sessão atual;
+- conversar com um viajante animado de armadura;
+- pausar e ajustar gráficos, mouse, campo de visão e volume;
+- após morrer, escolher **Despertar novamente** para reiniciar a cena.
+
+Assets baixados e modelos integrados: [ASSETS](docs/ASSETS.md).
 
 | Controle | Ação |
 |---|---|
@@ -21,7 +32,14 @@ A cena do despertar, em *greybox* (formas simples no lugar da arte final):
 | Mouse | olhar |
 | Shift | correr |
 | E | pegar, ler, fechar a carta |
-| Esc | fechar a carta ou soltar o mouse |
+| Mouse esquerdo | atacar com a arma equipada |
+| Mouse direito | segurar para bloquear ataques pela frente |
+| Espaço | esquivar na direção do movimento; parado, recuar |
+| F | apagar ou reacender a vela enquanto houver combustível |
+| Esc | fechar a leitura; fora dela, abrir/fechar pausa e configurações |
+
+Clique na janela do jogo para capturar o mouse novamente. No menu, use
+**Salvar configurações** para manter as preferências na próxima execução.
 
 ## Tecnologias e por quê
 
@@ -57,5 +75,8 @@ pwsh -File scripts/check.ps1
 ```
 
 ## Estado atual
+
+Para gerar e instalar a arma de exemplo, veja [MODDING](docs/MODDING.md).
+O empacotamento usa o suporte nativo do Godot, sem dependências adicionais.
 
 Veja o [ROADMAP](ROADMAP.md). Para mudar qualquer parte do jogo sem caçar arquivo, veja [COMO-EDITAR](docs/COMO-EDITAR.md).

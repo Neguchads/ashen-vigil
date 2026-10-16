@@ -1,0 +1,10 @@
+{
+  "id": "core",
+  "name": "Ashen Vigil",
+  "version": "0.1.0",
+  "game_version": ">=0.1.0",
+  "content": [
+    "res://core/weapons/rusty_dagger.tres",
+    "res://core/enemies/wolf.tres"
+  ]
+}

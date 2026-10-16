@@ -2,6 +2,23 @@
 
 Cada decisão registra o que foi escolhido, o porquê e a alternativa descartada.
 
+## 2026-10-16: combate e configurações com os recursos do motor
+
+- **Escolha:** `CombatVitals` para vida/stamina, `CombatController` para ataque, bloqueio e esquiva, e `EnemyDef` para atributos/modelo por ID. A consulta física do golpe respeita paredes e alcance; o acerto só ocorre uma vez após a preparação.
+- **Por quê:** entrega o combate pedido sem adicionar framework, addon ou um arquivo para cada estado. A cena continua trocável pelos dados do registro.
+- **Menu:** controles nativos, pausa real do mundo e preferências em `user://settings.cfg`. Pausar preserva a recuperação do ataque; apenas libera o bloqueio para evitar uma defesa presa ao voltar.
+- **Animações:** clipes dos modelos para descanso/caminhada, transformações para golpe da arma, avanço/queda do lobo e balanço da arma. Movimento reduzido desliga o balanço cosmético, mantendo a indicação do ataque.
+- **Assets:** cinco pacotes CC0, com fontes e hashes. A biblioteca fica fora de `game/`; somente os modelos selecionados entram no carregamento. A estética desses modelos é provisória.
+- **Escopo:** antecipar a base de combate e o lobo ferido conforme o pedido atual. Reinício manual após morrer; diário, prazo e consequências narrativas persistentes continuam pendentes.
+
+## 2026-10-16: primeira fatia de conteúdo e mods
+
+- **Escolha:** implementar as definições `ContentDef`, `ItemDef` e `WeaponDef`, registro por ID, manifesto, ordem de dependências e pacotes nativos `.pck`. A adaga nasce de um `ContentSpawner`; as armas de mods aparecem ao lado dela na área de demonstração.
+- **Por quê:** entrega uma arma nova no jogo sem editar o código, usando o motor e as ferramentas já instaladas. Combate, inventário e outras classes de conteúdo entram quando forem necessários.
+- **Modelos:** a mesma cena indicada na definição aparece na pedra e na mão. A vela continua disponível na outra mão.
+- **Cache:** o carregamento usa `CACHE_MODE_REPLACE_DEEP`; testes mostraram que substituir apenas a definição mantém modelos externos antigos no cache.
+- **Verificação:** `check.ps1` usa um perfil local isolado em `game/.godot/check-profile`, sem executar os mods instalados no perfil pessoal. Arte final, menu de mods, executável exportado e pacotes com assets importados continuam pendentes.
+
 ## 2026-10-15: Godot 4 no PC, não navegador
 
 - **Escolha:** Godot 4.7 (MIT), com executável para Windows.

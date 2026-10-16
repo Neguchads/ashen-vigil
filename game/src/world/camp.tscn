@@ -1,0 +1,61 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://assets/kaykit/knight.glb" id="1_guard"]
+[ext_resource type="Script" path="res://src/world/camp_resident.gd" id="2_script"]
+[ext_resource type="PackedScene" path="res://assets/medieval/gltf/buildings/red/building_tavern_red.gltf" id="3_tavern"]
+[ext_resource type="PackedScene" path="res://assets/medieval/gltf/buildings/red/building_well_red.gltf" id="4_well"]
+
+[sub_resource type="CapsuleShape3D" id="GuardCollision"]
+radius = 0.4
+height = 1.9
+
+[sub_resource type="BoxShape3D" id="BuildingCollision"]
+size = Vector3(4.2, 5.0, 4.4)
+
+[sub_resource type="CylinderShape3D" id="WellCollision"]
+radius = 0.7
+height = 1.4
+
+[node name="Camp" type="Node3D"]
+
+[node name="Tavern" parent="." instance=ExtResource("3_tavern")]
+position = Vector3(-7, 0, 8)
+rotation = Vector3(0, 1.2, 0)
+scale = Vector3(4.5, 4.5, 4.5)
+
+[node name="TavernBody" type="StaticBody3D" parent="."]
+position = Vector3(-7, 2.5, 8)
+rotation = Vector3(0, 1.2, 0)
+
+[node name="Shape" type="CollisionShape3D" parent="TavernBody"]
+shape = SubResource("BuildingCollision")
+
+[node name="Well" parent="." instance=ExtResource("4_well")]
+position = Vector3(4.5, 0, 8)
+scale = Vector3(2.5, 2.5, 2.5)
+
+[node name="WellBody" type="StaticBody3D" parent="."]
+position = Vector3(4.5, 0.7, 8)
+
+[node name="Shape" type="CollisionShape3D" parent="WellBody"]
+shape = SubResource("WellCollision")
+
+[node name="Resident" type="StaticBody3D" parent="."]
+position = Vector3(3.5, 0, 6.5)
+rotation = Vector3(0, 3.1415927, 0)
+script = ExtResource("2_script")
+prompt = "conversar com o viajante"
+
+[node name="Shape" type="CollisionShape3D" parent="Resident"]
+position = Vector3(0, 0.95, 0)
+shape = SubResource("GuardCollision")
+
+[node name="Model" parent="Resident" instance=ExtResource("1_guard")]
+scale = Vector3(0.8, 0.8, 0.8)
+
+[node name="Lantern" type="OmniLight3D" parent="."]
+position = Vector3(3.6, 2.5, 7.5)
+light_color = Color(1, 0.68, 0.36, 1)
+light_energy = 1.2
+omni_range = 7.0
+shadow_enabled = true

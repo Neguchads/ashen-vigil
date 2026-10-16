@@ -1,0 +1,86 @@
+[
+  {
+    "path": "game/assets/kaykit/barbarian_texture.png",
+    "bytes": 15089,
+    "sha256": "7329b2ff9709e8d54c886d5ef49c08bd42b12be3bbb2facb1488a6b48b1e8a80",
+    "source_library": "asset_library/kaykit_adventurers/fbx/barbarian_texture.png",
+    "license": "CC0-1.0"
+  },
+  {
+    "path": "game/assets/kaykit/knight.glb",
+    "bytes": 3659532,
+    "sha256": "60428e3abc09ba83e595d256e3af8c5c976b46cdae599f0802fc82b4a3445168",
+    "source_library": "asset_library/kaykit_adventurers/addons/kaykit_character_pack_adventures/Characters/gltf/Knight.glb",
+    "license": "CC0-1.0"
+  },
+  {
+    "path": "game/assets/kaykit/knight_knight_texture.png",
+    "bytes": 14172,
+    "sha256": "5d250ccc5da020e6126bfa3839f83bd9a465a951ed223e4d13c08b1925e154d4",
+    "source_library": "asset_library/kaykit_adventurers/fbx/knight_texture.png",
+    "license": "CC0-1.0"
+  },
+  {
+    "path": "game/assets/kaykit/knight_texture.png",
+    "bytes": 14172,
+    "sha256": "5d250ccc5da020e6126bfa3839f83bd9a465a951ed223e4d13c08b1925e154d4",
+    "source_library": "asset_library/kaykit_adventurers/fbx/knight_texture.png",
+    "license": "CC0-1.0"
+  },
+  {
+    "path": "game/assets/kaykit/mage_texture.png",
+    "bytes": 16311,
+    "sha256": "ea49f094b960402635fe51db9f1864960c97271b17f2e3554e5aca1b2bbba144",
+    "source_library": "asset_library/kaykit_adventurers/fbx/mage_texture.png",
+    "license": "CC0-1.0"
+  },
+  {
+    "path": "game/assets/kaykit/rogue_texture.png",
+    "bytes": 16670,
+    "sha256": "a4032e877c3b91939f5cdbb630349c1998fdbc3211bbd587c111125500fe4cc5",
+    "source_library": "asset_library/kaykit_adventurers/fbx/rogue_texture.png",
+    "license": "CC0-1.0"
+  },
+  {
+    "path": "game/assets/quaternius/wolf.fbx",
+    "bytes": 361228,
+    "sha256": "84a55b60ff741c1e7c0e725f9c7b659ef27ad4b658784642c09d191ba9636f0f",
+    "source_library": "asset_library/quaternius_animals/Animal Pack Vol.2 by @Quaternius/FBX/Wolf.fbx",
+    "license": "CC0-1.0"
+  },
+  {
+    "path": "game/assets/medieval/gltf/buildings/red/building_tavern_red.bin",
+    "bytes": 170848,
+    "sha256": "a197beeeb25efe3471a6263adcc824143689e7aa2ed5c3ec6fa12a063e6d6550",
+    "source_library": "asset_library/kaykit_medieval/gltf/buildings/red/building_tavern_red.bin",
+    "license": "CC0-1.0"
+  },
+  {
+    "path": "game/assets/medieval/gltf/buildings/red/building_tavern_red.gltf",
+    "bytes": 3090,
+    "sha256": "0c34d801a6c0583ec270ba76cff323188ad6b43b763bb67dc593327b63e06f7c",
+    "source_library": "asset_library/kaykit_medieval/gltf/buildings/red/building_tavern_red.gltf",
+    "license": "CC0-1.0"
+  },
+  {
+    "path": "game/assets/medieval/gltf/buildings/red/building_well_red.bin",
+    "bytes": 42340,
+    "sha256": "4c1502df214e4c571c14f60aa199a4a9d610f0161bc31e52065e70daeb311e3d",
+    "source_library": "asset_library/kaykit_medieval/gltf/buildings/red/building_well_red.bin",
+    "license": "CC0-1.0"
+  },
+  {
+    "path": "game/assets/medieval/gltf/buildings/red/building_well_red.gltf",
+    "bytes": 3080,
+    "sha256": "ed5b51f67c15ee80e65a685ddae9f2b5809aef75d4f8d8691270353698041ed8",
+    "source_library": "asset_library/kaykit_medieval/gltf/buildings/red/building_well_red.gltf",
+    "license": "CC0-1.0"
+  },
+  {
+    "path": "game/assets/medieval/gltf/buildings/red/hexagons_medieval.png",
+    "bytes": 15783,
+    "sha256": "5301a06866ba3be68dcc14cc429bd6d0f69004b72884283715d7e233f2e9782e",
+    "source_library": "asset_library/kaykit_medieval/addons/kaykit_medieval_hexagon_pack/Textures/hexagons_medieval.png",
+    "license": "CC0-1.0"
+  }
+]
