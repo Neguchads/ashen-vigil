@@ -1,0 +1,17 @@
+# Godot
+.godot/
+*.translation
+game/reports/
+game/GdUnitRunner.cfg
+
+# Builds e saídas
+/build/
+
+# Python
+.venv/
+__pycache__/
+
+# Segredos (o projeto não usa, mas fica protegido)
+.env
+.env.*
+!.env.example
