@@ -13,6 +13,7 @@
 ## Em andamento
 
 - Playtest do primeiro jogável com o Gustavo.
+- Achados da revisão independente do Plano 01 (2026-10-20), detalhes no `NOTAS.md`: chama visível com a vela apagada, E/Esc sem teste de entrada real, jogador cai para fora do mapa, e 4 menores.
 - Loop temporal completo: o reinício manual após a morte já existe; relógio, diário e persistência narrativa continuam pendentes.
 
 ## Planejado
